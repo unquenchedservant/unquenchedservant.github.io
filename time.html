@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>It's Always 4:20</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Digital-7 Mono', sans-serif;
+        }
+
+        #label {
+            font-size: 30px;
+            position: absolute;
+            top: 10%;
+        }
+
+        #clock {
+            font-size: 200px;
+        }
+
+        #date {
+            font-size: 30px;
+            position: absolute;
+            top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div id="label">Current Time:</div>
+    <div id="clock">04:20:00</div>
+    <div id="date">April 20th</div>
+
+    <script>
+        var clock = document.getElementById('clock');
+        var dateLabel = document.getElementById('date');
+    
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    
+        function updateSeconds() {
+            var now = new Date();
+            var seconds = now.getSeconds();
+            var displaySeconds = seconds < 10 ? '0' + seconds : seconds;
+            clock.textContent = '04:20:' + displaySeconds;
+    
+            var day = days[now.getDay()];
+            var year = now.getFullYear();
+            dateLabel.textContent = day + ', April 20th ' + year;
+        }
+    
+        setInterval(updateSeconds, 1000);
+    </script>
+</body>
+</html>
